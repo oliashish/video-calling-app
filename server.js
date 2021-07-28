@@ -1,6 +1,5 @@
 const express = require("express");
 const http = require("http");
-const { v4: uuidV4 } = require("uuid");
 const cors = require("cors");
 const socket = require("socket.io");
 
@@ -37,6 +36,13 @@ io.on("connection", (socket) => {
     socket.on("answerCall", (data) => {
         io.to(data.to).emit("callAccepted", data.signal);
     });
+});
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("../../client/build"));
+}
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
 });
 
 server.listen(PORT, () => console.log("server is running on port", PORT));

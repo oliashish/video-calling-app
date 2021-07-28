@@ -1,18 +1,20 @@
 {
-   "name": "video-call",
-   "version": "1.0.0",
-   "description": "",
-   "main": "index.js",
-   "scripts": {
-      "start": "nodemon server.js"
-   },
-   "keywords": [],
-   "author": "",
-   "license": "ISC",
-   "dependencies": {
-      "cors": "^2.8.5",
-      "express": "^4.17.1",
-      "socket.io": "^4.0.1",
-      "uuid": "^8.3.2"
-   }
+    "name": "video-call",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "preinstall": "npm i -g pm2",
+        "start": "npm install && pm2 server.js",
+        "heroku-postbuild": "cd client && npm install && npm build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "pm2": "^5.1.0",
+        "socket.io": "^4.0.1"
+    }
 }
