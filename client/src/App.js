@@ -10,7 +10,7 @@ import io from "socket.io-client";
 import VideoPlayer from "./components/VideoPlayer";
 import "./styles/App.css";
 
-const socket = io.connect("http://localhost:9999");
+const socket = io.connect("https://https://my-video-calling.herokuapp.com/");
 function App() {
     const [me, setMe] = useState("");
     const [stream, setStream] = useState();
