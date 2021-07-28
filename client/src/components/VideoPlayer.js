@@ -11,7 +11,7 @@ const VideoPlayer = ({ stream, myRef, callAccepted, callEnded, userRef }) => {
                         muted
                         ref={myRef}
                         autoPlay
-                        style={{ width: "500px" }}
+                        style={{ width: "400px" }}
                     />
                 )}
             </div>
@@ -21,7 +21,7 @@ const VideoPlayer = ({ stream, myRef, callAccepted, callEnded, userRef }) => {
                         playsInline
                         ref={userRef}
                         autoPlay
-                        style={{ width: "500px" }}
+                        style={{ width: "400px" }}
                     />
                 ) : null}
             </div>

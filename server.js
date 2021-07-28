@@ -8,9 +8,14 @@ const PORT = process.env.PORT || 9999;
 
 const app = express();
 const server = http.createServer(app);
-const io = socket(server);
+const io = socket(server, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+    },
+});
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
