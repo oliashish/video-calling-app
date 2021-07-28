@@ -4,8 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "preinstall": "npm i -g pm2",
-        "start": "npm install && pm2 server.js",
+        "start": "npm install && nodemon server.js",
         "heroku-postbuild": "cd client && npm install && npm build"
     },
     "keywords": [],
@@ -14,7 +13,7 @@
     "dependencies": {
         "cors": "^2.8.5",
         "express": "^4.17.1",
-        "pm2": "^5.1.0",
+        "nodemon": "^2.0.12",
         "socket.io": "^4.0.1"
     }
 }
