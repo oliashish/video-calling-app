@@ -11,6 +11,8 @@ import VideoPlayer from "./components/VideoPlayer";
 import "./styles/App.css";
 
 const socket = io.connect("https://my-video-calling.herokuapp.com/");
+// const socket = io.connect("http://localhost:8080");
+
 function App() {
     const [me, setMe] = useState("");
     const [stream, setStream] = useState();
@@ -21,6 +23,7 @@ function App() {
     const [idToCall, setIdToCall] = useState("");
     const [callEnded, setCallEnded] = useState(false);
     const [name, setName] = useState("");
+
     const myVideo = useRef();
     const userVideo = useRef();
     const connectionRef = useRef();
@@ -113,20 +116,18 @@ function App() {
                     </h3>
                     <div className="info-options">
                         <TextField
-                            id="filled-basic"
                             label="Name"
                             variant="filled"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            style={{ marginBottom: "30px" }}
                         />
                         <CopyToClipboard
                             text={me}
-                            style={{ marginBottom: "2rem" }}
+                            style={{ marginBottom: "8px" }}
                         >
                             <Button
+                                color="secondary"
                                 variant="contained"
-                                color="primary"
                                 startIcon={<AssignmentIcon fontSize="large" />}
                             >
                                 Copy ID
@@ -134,7 +135,6 @@ function App() {
                         </CopyToClipboard>
 
                         <TextField
-                            id="filled-basic"
                             label="ID to call"
                             variant="filled"
                             value={idToCall}
@@ -151,7 +151,7 @@ function App() {
                                 </Button>
                             ) : (
                                 <IconButton
-                                    color="primary"
+                                    color="secondary"
                                     aria-label="call"
                                     onClick={() => callUser(idToCall)}
                                 >
@@ -168,7 +168,7 @@ function App() {
                             <h1>{name} is calling...</h1>
                             <Button
                                 variant="contained"
-                                color="primary"
+                                color="secondary"
                                 onClick={answerCall}
                             >
                                 Answer
