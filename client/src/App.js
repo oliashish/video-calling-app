@@ -10,7 +10,17 @@ import io from "socket.io-client";
 import VideoPlayer from "./components/VideoPlayer";
 import "./styles/App.css";
 
-const socket = io.connect("https://my-video-calling.herokuapp.com/");
+const socket = io.connect("https://my-video-calling.herokuapp.com/", {
+    withCreadentials: true,
+    transportOptions: {
+        polling: {
+            extraHeaders: {
+                "my-custom-header": "This is my video calling app",
+            },
+        },
+    },
+});
+
 // const socket = io.connect("http://localhost:8080");
 
 function App() {
